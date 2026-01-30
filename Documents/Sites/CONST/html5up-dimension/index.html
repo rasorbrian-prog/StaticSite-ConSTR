@@ -12,7 +12,43 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
-	<body class="is-preload">
+
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+	<body class="is-preload"></body>
+	<!-- Lightbox Script -->
+	<script>
+		function openLightbox(imageSrc) {
+			document.getElementById('lightbox').classList.add('active');
+			document.getElementById('lightbox-img').src = imageSrc;
+		}
+
+		function closeLightbox() {
+			document.getElementById('lightbox').classList.remove('active');
+		}
+
+		// Close lightbox when clicking outside the image
+		document.getElementById('lightbox').addEventListener('click', function(e) {
+			if (e.target === this) {
+				closeLightbox();
+			}
+		});
+
+		// Close lightbox with Escape key
+		document.addEventListener('keydown', function(e) {
+			if (e.key === 'Escape') {
+				closeLightbox();
+			}
+		});
+	</script>
+
+</body>
+</html>
+
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -55,11 +91,17 @@
 								<h2 class="major">Our Work</h2>
 
 							<div class="gallery">
- 							 <span class="image fit" style="background-image: url('images/work/work1.jpg');"></span>
-  							<span class="image fit" style="background-image: url('images/work/work2.jpg');"></span>
-  							<span class="image fit" style="background-image: url('images/work/work3.jpg');"></span>
-  							<span class="image fit" style="background-image: url('images/work/work4.jpg');"></span>
+								<span class="image fit" style="background-image: url('images/work/work1.jpg');" onclick="openLightbox('images/work/work1.jpg')"></span>
+								<span class="image fit" style="background-image: url('images/work/work2.jpg');" onclick="openLightbox('images/work/work2.jpg')"></span>
+								<span class="image fit" style="background-image: url('images/work/work3.jpg');" onclick="openLightbox('images/work/work3.jpg')"></span>
+								<span class="image fit" style="background-image: url('images/work/work4.jpg');" onclick="openLightbox('images/work/work4.jpg')"></span>
+								<span class="image fit" style="background-image: url('images/work/work5.jpg');" onclick="openLightbox('images/work/work5.jpg')"></span>
+								<span class="image fit" style="background-image: url('images/work/work6.jpg');" onclick="openLightbox('images/work/work6.jpg')"></span>
+								<span class="image fit" style="background-image: url('images/work/work7.jpg');" onclick="openLightbox('images/work/work7.jpg')"></span>
+								<span class="image fit" style="background-image: url('images/work/work8.jpg');" onclick="openLightbox('images/work/work8.jpg')"></span>
+								<span class="image fit" style="background-image: url('images/work/work9.jpg');" onclick="openLightbox('images/work/work9.jpg')"></span>
 							</div>
+							
 
 
 							<p>
@@ -183,7 +225,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 								</section>
 
 								<section>
-									<h3 class="major">Table</h3>
+						<body class="is-preload">				<h3 class="major">Table</h3>
 									<h4>Default</h4>
 									<div class="table-wrapper">
 										<table>
@@ -357,6 +399,16 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 					</footer>
 
 			</div>
+		</div>
+
+			<!-- Lightbox -->
+				<div class="lightbox" id="lightbox">
+				<button class="close-lightbox" onclick="closeLightbox()">&times;</button>
+				<img id="lightbox-img" src="" alt="">
+		</div>
+
+	<!-- Footer -->
+		<footer id="footer">
 
 		<!-- BG -->
 			<div id="bg"></div>
