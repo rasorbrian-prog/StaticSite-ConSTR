@@ -23,6 +23,8 @@
 	<!-- Lightbox Script -->
 	<script>
 		function openLightbox(imageSrc) {
+			event.preventDefault();
+			event.stopPropagation();
 			document.getElementById('lightbox').classList.add('active');
 			document.getElementById('lightbox-img').src = imageSrc;
 		}
@@ -30,6 +32,13 @@
 		function closeLightbox() {
 			document.getElementById('lightbox').classList.remove('active');
 		}
+
+		// Close button click handler
+		document.getElementById('close-lightbox-btn').addEventListener('click', function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			closeLightbox();
+		});
 
 		// Close lightbox when clicking outside the image
 		document.getElementById('lightbox').addEventListener('click', function(e) {
@@ -44,7 +53,7 @@
 				closeLightbox();
 			}
 		});
-	</script>
+</script>
 
 </body>
 </html>
@@ -403,9 +412,9 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 			<!-- Lightbox -->
 				<div class="lightbox" id="lightbox">
-				<button class="close-lightbox" onclick="closeLightbox()">&times;</button>
-				<img id="lightbox-img" src="" alt="">
-		</div>
+					<button class="close-lightbox" id="close-lightbox-btn">&times;</button>
+					<img id="lightbox-img" src="" alt="">
+				</div>
 
 	<!-- Footer -->
 		<footer id="footer">
